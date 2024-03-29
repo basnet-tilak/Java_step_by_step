@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import step_by_step.UsersRepository.UsersRepository;
 import step_by_step.model.Users;
-
 import java.util.List;
 
 @Service
@@ -16,5 +15,8 @@ public class UserServices {
     }
     public List<Users> getAllUsers(){
         return repository.findAll();
+    }
+    public void deleteUser(Long id){
+        repository.deleteById(id);
     }
 }
