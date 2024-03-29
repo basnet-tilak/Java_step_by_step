@@ -11,12 +11,10 @@ import java.util.List;
 public class UserServices {
     @Autowired
     private UsersRepository repository;
-    public void createUser(){
-        Users users = new Users(1L,"Tilak Basnet");
-        repository.save(users);
+    public void createUser(Users users){
+       repository.save(users);
     }
     public List<Users> getAllUsers(){
         return repository.findAll();
     }
-
 }
