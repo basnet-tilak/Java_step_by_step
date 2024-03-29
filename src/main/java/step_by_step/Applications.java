@@ -1,19 +1,28 @@
 package step_by_step;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.Scanner;
+import step_by_step.model.Users;
+import step_by_step.services.UserServices;
+
+import java.util.ArrayList;
+import java.util.List;
 @SpringBootApplication
 public class Applications implements CommandLineRunner {
+    @Autowired
+    UserServices userServices;
     public static void main(String[] args) {
         SpringApplication.run(Applications.class,args);
     }
     @Override
     public void run(String... args) throws Exception {
-        Scanner obj = new Scanner(System.in);
-        System.out.print("Enter the your Name: ");
-        String name = obj.next();
-        System.out.println(name);
+
+        List<Users> list = new ArrayList<>(userServices.getAllUsers());
+
+        for (Users users : list){
+            System.out.println(users.getUsername());
+        }
     }
 }
