@@ -31,7 +31,7 @@ public class Applications implements CommandLineRunner {
         user.setUsername("Indra");
         userServices.createUser(new Users(users.getUserId(), users.getUsername()));
         */
-        userServices.deleteUser(1L);
-
+        //userServices.deleteUser(1L);
+        //userServices.updateUserById(2L, "Tilak Basnet");
     }
 }
