@@ -6,5 +6,4 @@ import step_by_step.model.Users;
 
 @Repository
 public interface UsersRepository  extends JpaRepository<Users,Long> {
-
 }

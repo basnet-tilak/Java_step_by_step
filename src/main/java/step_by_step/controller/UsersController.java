@@ -3,7 +3,7 @@ package step_by_step.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import step_by_step.model.Users;
-import step_by_step.services.UserServices;
+import step_by_step.services.UsersServices;
 
 import java.util.List;
 
@@ -11,7 +11,13 @@ import java.util.List;
 @RequestMapping("/api")
 public class UsersController {
     @Autowired
-    UserServices services;
+    UsersServices services;
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello World";
+    }
+
     @GetMapping("/get")
     public List<Users> getAllUsers(){
         return services.getAllUsers();
@@ -22,9 +28,8 @@ public class UsersController {
     }
     @PutMapping("/put")
     public void updateUser(@RequestBody Users users){
-        services.updateUserById(users.getUserId(), users.getUsername());
+        //services.updateUserById(users.getUserId(), users.getUsername());
     }
-
     @DeleteMapping("/delete/{id}")
     public void deleteUserById(@PathVariable Long id){
         services.deleteUser(id);
